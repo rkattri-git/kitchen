@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ReferenceData {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("reference_data")
+}
+
+model ImportBatch {
+  id            String           @id @default(cuid())
+  kind          String
+  sourceName    String           @map("source_name")
+  sourceSystem  String?          @map("source_system")
+  exportId      String?          @map("export_id")
+  exportedAt    DateTime?        @map("exported_at")
+  checkedAt     DateTime?        @map("checked_at")
+  importedAt    DateTime         @default(now()) @map("imported_at")
+  rowCount      Int              @default(0) @map("row_count")
+  contentHash   String           @map("content_hash")
+  importVersion Int              @default(1) @map("import_version")
+  records       ImportedRecord[]
+
+  @@unique([kind, contentHash])
+  @@index([kind, importedAt])
+  @@map("import_batches")
+}
+
+model ImportedRecord {
+  id        String      @id @default(cuid())
+  batchId   String      @map("batch_id")
+  recordKey String      @map("record_key")
+  value     Json
+  batch     ImportBatch @relation(fields: [batchId], references: [id], onDelete: Cascade)
+
+  @@unique([batchId, recordKey])
+  @@index([recordKey])
+  @@map("imported_records")
+}
+
+model AgentRun {
+  id            String   @id @default(cuid())
+  importVersion Int      @map("import_version")
+  model         String
+  result        Json
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@index([importVersion, createdAt])
+  @@map("agent_runs")
+}
+

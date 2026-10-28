@@ -1,0 +1,7 @@
+{
+  "supplier_id": "SUP-001",
+  "display_name": "Training supplier order desk",
+  "default_draft_to": "redmartorder@gmail.com",
+  "classroom_placeholder": true
+}
+

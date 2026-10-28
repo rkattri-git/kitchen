@@ -1,0 +1,17 @@
+{
+  "scenario": "Sample Central Kitchen, planning week 2–6 November 2026",
+  "timezone": "Asia/Singapore",
+  "order_cutoff": "2026-10-28T12:00:00+08:00",
+  "week_start": "2026-11-02",
+  "week_end": "2026-11-06",
+  "settings": {
+    "permanent_shift_start": "08:00",
+    "permanent_shift_end": "15:00",
+    "permanent_break_start": "12:00",
+    "permanent_break_minutes": 60,
+    "permanent_productive_hours": 6,
+    "part_time_productive_hours": 4,
+    "max_shifts_per_person_per_day": 1
+  }
+}
+

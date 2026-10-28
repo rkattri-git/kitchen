@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": "CHEESE",
+      "name": "Cheese sandwich",
+      "labour_hours_per_unit": 0.02
+    },
+    {
+      "id": "EGG",
+      "name": "Egg sandwich",
+      "labour_hours_per_unit": 0.02
+    },
+    {
+      "id": "CHICKEN",
+      "name": "Chicken sandwich",
+      "labour_hours_per_unit": 0.02
+    }
+  ],
+  "recipes": [
+    {
+      "product_id": "CHEESE",
+      "ingredient_id": "BREAD",
+      "quantity_per_unit": 2
+    },
+    {
+      "product_id": "CHEESE",
+      "ingredient_id": "CHEESE",
+      "quantity_per_unit": 30
+    },
+    {
+      "product_id": "EGG",
+      "ingredient_id": "BREAD",
+      "quantity_per_unit": 2
+    },
+    {
+      "product_id": "EGG",
+      "ingredient_id": "EGG",
+      "quantity_per_unit": 50
+    },
+    {
+      "product_id": "CHICKEN",
+      "ingredient_id": "BREAD",
+      "quantity_per_unit": 2
+    },
+    {
+      "product_id": "CHICKEN",
+      "ingredient_id": "CHICKEN",
+      "quantity_per_unit": 60
+    }
+  ]
+}
+
